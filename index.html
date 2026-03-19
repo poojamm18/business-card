@@ -8,39 +8,51 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f7f8fc, #e2e8f0);
+      background: linear-gradient(135deg, #eef2ff, #f8fafc);
     }
 
     .container {
       max-width: 420px;
-      margin: 30px auto;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
       overflow: hidden;
     }
 
     .banner {
       width: 100%;
-      height: auto;
       display: block;
     }
 
     .content {
-      padding: 22px;
+      padding: 24px;
       text-align: center;
     }
 
     h1 {
       font-size: 20px;
       margin: 10px 0 5px;
-      color: #1a202c;
+      color: #1e293b;
+      font-weight: 600;
     }
 
-    p {
+    .subtitle {
       font-size: 14px;
-      color: #4a5568;
-      margin-bottom: 20px;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 18px;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e2e8f0;
+      margin: 15px 0;
     }
 
     .btn {
@@ -56,16 +68,23 @@
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
 
+    /* Primary CTA */
+    .whatsapp {
+      background: #22c55e;
+      color: white;
+    }
+
+    /* Secondary buttons */
     .instagram {
-      background: #E1306C;
+      background: #f43f5e;
       color: white;
     }
 
     .website {
-      background: #2563eb;
+      background: #3b82f6;
       color: white;
     }
 
@@ -75,13 +94,14 @@
     }
 
     .call {
-      background: #ea580c;
+      background: #f97316;
       color: white;
     }
 
-    .whatsapp {
-      background: #25D366;
-      color: white;
+    .contact {
+      font-size: 13px;
+      color: #64748b;
+      margin-top: 10px;
     }
 
   </style>
@@ -91,12 +111,21 @@
 
 <div class="container">
 
-  <!-- Banner Image -->
+  <!-- Banner -->
   <img src="banner.jpeg" class="banner">
 
   <div class="content">
+
     <h1>Hindu Vadhu-Varara Mahiti Kendra</h1>
-    <p>Matrimony & Travel Services</p>
+    <div class="subtitle">Matrimony & Travel Services</div>
+    <div class="tagline">Trusted Services Across Karnataka</div>
+
+    <!-- 🔥 Primary CTA -->
+    <a class="btn whatsapp" href="https://wa.me/919483463783" target="_blank">
+      Start on WhatsApp
+    </a>
+
+    <div class="divider"></div>
 
     <a class="btn instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
       Instagram
@@ -114,9 +143,9 @@
       Call Us
     </a>
 
-    <a class="btn whatsapp" href="https://wa.me/919483463783" target="_blank">
-      WhatsApp
-    </a>
+    <div class="contact">
+      📞 7892510652 | 💬 WhatsApp Available
+    </div>
 
   </div>
 
