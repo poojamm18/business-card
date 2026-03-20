@@ -15,40 +15,37 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
     }
 
     /* MAIN LAYOUT */
     .container {
-      min-height: 100vh; /* fixed mobile issue */
-      display: flex;
-      flex-direction: column;
+      width: 100%;
     }
 
-    /* 70% banner */
+    /* HERO SECTION */
     .top {
-      flex: 7;
-      overflow: hidden;
+      width: 100%;
+      line-height: 0; /* removes tiny white gap under image */
     }
 
     .top picture {
-      width: 100%;
-      height: 100%;
       display: block;
+      width: 100%;
     }
 
     .banner {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto; /* IMPORTANT FIX */
       display: block;
     }
 
-    /* 30% glass section */
+    /* BOTTOM SECTION */
     .bottom {
-      flex: 3;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 20px 0;
       background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     }
 
@@ -79,7 +76,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    /* FLOAT EFFECT */
     .icon:hover {
       transform: translateY(-6px) scale(1.1);
     }
@@ -98,18 +94,15 @@
 
   <div class="container">
 
-    <!-- TOP: BANNER -->
+    <!-- HERO -->
     <div class="top">
       <picture>
-        <!-- MOBILE -->
         <source media="(max-width: 768px)" srcset="mobile_banner.png">
-
-        <!-- DESKTOP -->
         <img src="desktop_banner.jpeg" class="banner" alt="Banner">
       </picture>
     </div>
 
-    <!-- BOTTOM: GLASS ICON AREA -->
+    <!-- ICON SECTION -->
     <div class="bottom">
       <div class="glass">
 
