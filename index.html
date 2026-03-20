@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Hindu Vadhu-Varara Mahiti Kendra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,31 +15,69 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+    }
+
+    /* MAIN LAYOUT */
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 70% banner */
+    .top {
+      flex: 7;
+      position: relative;
       overflow: hidden;
     }
 
-    /* FULL SCREEN BANNER */
-    .banner1 {
+    .banner {
       width: 100%;
-      height: 100vh;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* OVERLAY CONTENT */
-    .overlay {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+    /* 🔥 FADE EFFECT */
+    .top::after {
+    height: 50px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      #9cb7d1
+    );
+    }
+
+    /* 30% glass section */
+    .bottom {
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(135deg, #9cb7d1, #9cadc3);
+    }
+
+    /* GLASS CARD */
+    .glass {
       display: flex;
       gap: 20px;
+      padding: 20px 30px;
+
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+
+      background: rgba(215, 215, 215, 0.4);
+      border: 1px solid rgba(215,215,215,0.4);
+
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
-    /* ICON BUTTONS */
-    .icon-btn {
+    /* ICONS */
+    .icon {
       width: 55px;
       height: 55px;
       border-radius: 50%;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -47,14 +86,13 @@
       font-size: 20px;
       text-decoration: none;
 
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,0.5);
-
       transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    .icon-btn:hover {
-      transform: scale(1.1);
+    /* FLOAT EFFECT */
+    .icon:hover {
+      transform: translateY(-6px) scale(1.1);
     }
 
     /* COLORS */
@@ -69,28 +107,40 @@
 
 <body>
 
-  <img src="banner1.jpg" class="banner">
+  <div class="container">
 
-  <div class="overlay">
-    <a class="icon-btn whatsapp" href="https://wa.me/919483463783" target="_blank">
-      <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- TOP: BANNER -->
+    <div class="top">
+      <img src="banner.jpeg" class="banner" alt="Banner">
+    </div>
 
-    <a class="icon-btn instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
+    <!-- BOTTOM: GLASS ICON AREA -->
+    <div class="bottom">
 
-    <a class="icon-btn website" href="https://www.hindusmatrimony.com" target="_blank">
-      <i class="fas fa-globe"></i>
-    </a>
+      <div class="glass">
+        <a class="icon whatsapp" href="https://wa.me/919483463783" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
 
-    <a class="icon-btn location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9" target="_blank">
-      <i class="fas fa-map-marker-alt"></i>
-    </a>
+        <a class="icon instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
 
-    <a class="icon-btn call" href="tel:7892510652">
-      <i class="fas fa-phone"></i>
-    </a>
+        <a class="icon website" href="https://www.hindusmatrimony.com" target="_blank">
+          <i class="fas fa-globe"></i>
+        </a>
+
+        <a class="icon location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9" target="_blank">
+          <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+        <a class="icon call" href="tel:7892510652">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
+
+    </div>
+
   </div>
 
 </body>
