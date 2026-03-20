@@ -15,18 +15,20 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #9cb7d1, #9cadc3);
     }
 
     /* MAIN LAYOUT */
     .container {
-      height: 100vh;
+      height: 100%;
       display: flex;
       flex-direction: column;
     }
 
-    /* TOP (70%) */
+    /* 70% HERO */
     .top {
-      flex: 7;
+      height: 70%;
       position: relative;
       overflow: hidden;
     }
@@ -35,47 +37,45 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+
+      /* 🔥 important */
+      object-position: top center;
     }
 
-    /* 🔥 MINIMAL FADE (just edge softening) */
+    /* SUBTLE EDGE FADE */
     .top::after {
       content: "";
       position: absolute;
       bottom: 0;
-      left: 0;
       width: 100%;
-      height: 18px;
-
-      background: linear-gradient(
-        to bottom,
-        rgba(156,183,209,0),
-        rgba(156,183,209,0.35)
-      );
+      height: 15px;
+      background: linear-gradient(to bottom, transparent, #9cb7d1);
     }
 
-    /* BOTTOM (30%) */
+    /* 30% ICON SECTION */
     .bottom {
-      flex: 3;
+      height: 30%;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      background: linear-gradient(135deg, #9cb7d1, #9cadc3);
+      position: relative;
     }
 
-    /* GLASS */
+    /* GLASS CARD */
     .glass {
       display: flex;
       gap: 20px;
-      padding: 20px 30px;
+      padding: 18px 26px;
 
       border-radius: 25px;
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(18px);
 
       background: rgba(255,255,255,0.25);
       border: 1px solid rgba(255,255,255,0.3);
 
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+      margin-top: -25px; /* slight overlap */
     }
 
     /* ICONS */
@@ -97,7 +97,7 @@
     }
 
     .icon:hover {
-      transform: translateY(-6px) scale(1.1);
+      transform: translateY(-5px) scale(1.08);
     }
 
     /* COLORS */
@@ -107,51 +107,23 @@
     .location { background: #16a34a; }
     .call { background: #f97316; }
 
-    /* 🔥 MOBILE FIX */
+    /* 🔥 MOBILE OPTIMIZATION */
     @media (max-width: 768px) {
-
-      body {
-        background: linear-gradient(135deg, #9cb7d1, #9cadc3);
-      }
-      .container {
-        height: auto;
-
-      }
-    
-      
-      
-
-      .top {
-        flex: none;
-        height: auto;
-      }
-
-      .banner {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-      }
-
-      /* even lighter fade on mobile */
-      .top::after {
-        height: 12px;
-      }
-
-      .bottom {
-        flex: none;
-        height: auto;
-        padding: 20px 0;
-      }
-
-      .glass {
-        gap: 15px;
-        padding: 15px 20px;
-      }
 
       .icon {
         width: 50px;
         height: 50px;
         font-size: 18px;
+      }
+
+      .glass {
+        gap: 15px;
+        padding: 15px 20px;
+        margin-top: -20px;
+      }
+
+      .top::after {
+        height: 10px;
       }
     }
 
@@ -162,12 +134,12 @@
 
   <div class="container">
 
-    <!-- TOP -->
+    <!-- HERO -->
     <div class="top">
       <img src="banner.jpeg" class="banner" alt="Banner">
     </div>
 
-    <!-- BOTTOM -->
+    <!-- ACTIONS -->
     <div class="bottom">
       <div class="glass">
 
