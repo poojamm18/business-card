@@ -19,7 +19,7 @@
 
     /* MAIN LAYOUT */
     .container {
-      height: 100vh;
+      min-height: 100vh; /* fixed mobile issue */
       display: flex;
       flex-direction: column;
     }
@@ -27,29 +27,20 @@
     /* 70% banner */
     .top {
       flex: 7;
-      position: relative;
       overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-      .banner {
-        object-fit: contain;
-      }
+    .top picture {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .banner {
-      object-fit: contain;
-      background: #9cb7d1; /* same as bottom */
-    }
-
-    /* 🔥 FADE EFFECT */
-    .top::after {
-    height: 50px;
-    background: linear-gradient(
-      to bottom,
-      transparent,
-      #9cb7d1
-    );
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* 30% glass section */
@@ -58,8 +49,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      background: linear-gradient(135deg, #9cb7d1, #9cadc3);
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     }
 
     /* GLASS CARD */
@@ -67,13 +57,10 @@
       display: flex;
       gap: 20px;
       padding: 20px 30px;
-
       border-radius: 25px;
       backdrop-filter: blur(15px);
-
-      background: rgba(215, 215, 215, 0.4);
-      border: 1px solid rgba(215,215,215,0.4);
-
+      background: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.3);
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
@@ -82,15 +69,12 @@
       width: 55px;
       height: 55px;
       border-radius: 50%;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       color: white;
       font-size: 20px;
       text-decoration: none;
-
       transition: 0.2s;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
@@ -116,13 +100,19 @@
 
     <!-- TOP: BANNER -->
     <div class="top">
-      <img src="banner.jpeg" class="banner" alt="Banner">
+      <picture>
+        <!-- MOBILE -->
+        <source media="(max-width: 768px)" srcset="mobile_banner.png">
+
+        <!-- DESKTOP -->
+        <img src="desktop_banner.jpeg" class="banner" alt="Banner">
+      </picture>
     </div>
 
     <!-- BOTTOM: GLASS ICON AREA -->
     <div class="bottom">
-
       <div class="glass">
+
         <a class="icon whatsapp" href="https://wa.me/919483463783" target="_blank">
           <i class="fab fa-whatsapp"></i>
         </a>
@@ -142,8 +132,8 @@
         <a class="icon call" href="tel:7892510652">
           <i class="fas fa-phone"></i>
         </a>
-      </div>
 
+      </div>
     </div>
 
   </div>
