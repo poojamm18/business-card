@@ -4,7 +4,7 @@
   <title>Hindu Vadhu-Varara Mahiti Kendra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Icons -->
@@ -14,212 +14,84 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-
-      /* 🔥 Animated Gradient */
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-      background-size: 400% 400%;
-      animation: gradientMove 10s ease infinite;
+      overflow: hidden;
     }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
+    /* FULL SCREEN BANNER */
     .banner {
       width: 100%;
-      display: block;
+      height: 100vh;
+      object-fit: cover;
     }
 
-    .content {
-      position: relative;
-      max-width: 420px;
-      margin: -50px auto 30px;
-      padding: 25px 20px;
-      text-align: center;
-
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    /* OVERLAY CONTENT */
+    .overlay {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
     }
 
-    h1 {
-      font-size: 22px;
-      margin: 15px 0 5px;
-      color: #1e293b;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #475569;
-    }
-
-    .tagline {
-      font-size: 13px;
-      color: #64748b;
-      margin-bottom: 18px;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e2e8f0;
-      margin: 15px 0;
-    }
-
-    /* BUTTON */
-    .btn {
-      position: relative;
-      overflow: hidden;
-
+    /* ICON BUTTONS */
+    .icon-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-
-      margin: 10px auto;
-      padding: 14px;
-      border-radius: 12px;
-
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-
-      width: 100%;
-      max-width: 350px;
 
       color: white;
-      transition: all 0.2s ease;
+      font-size: 20px;
+      text-decoration: none;
+
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.5);
+
+      transition: 0.2s;
     }
 
-    /* Tap effect */
-    .btn:active {
-      transform: scale(0.95);
-    }
-
-    /* Ripple */
-    .btn::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      background: rgba(255,255,255,0.5);
-      border-radius: 50%;
-      transform: scale(1);
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .btn:active::after {
-      width: 300px;
-      height: 300px;
-      opacity: 1;
-      transition: 0s;
+    .icon-btn:hover {
+      transform: scale(1.1);
     }
 
     /* COLORS */
-    .whatsapp {
-      background: linear-gradient(45deg, #22c55e, #4ade80);
-      animation: pulse 2s infinite;
-    }
-
-    .instagram {
-      background: linear-gradient(45deg, #f43f5e, #fb7185);
-    }
-
-    .website {
-      background: linear-gradient(45deg, #3b82f6, #60a5fa);
-    }
-
-    .location {
-      background: linear-gradient(45deg, #16a34a, #4ade80);
-    }
-
-    .call {
-      background: linear-gradient(45deg, #f97316, #fb923c);
-    }
-
-    /* Pulse */
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-      70% { box-shadow: 0 0 0 12px rgba(34,197,94,0); }
-      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-    }
-
-    .contact {
-      font-size: 13px;
-      color: #475569;
-      margin-top: 12px;
-    }
-
-    /* Sticky WhatsApp */
-    .sticky-whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-
-      background: linear-gradient(45deg, #22c55e, #4ade80);
-      color: white;
-
-      padding: 14px 16px;
-      border-radius: 50px;
-      font-size: 18px;
-
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-decoration: none;
-
-      animation: float 2s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
+    .whatsapp { background: #22c55e; }
+    .instagram { background: #e1306c; }
+    .website { background: #3b82f6; }
+    .location { background: #16a34a; }
+    .call { background: #f97316; }
 
   </style>
 </head>
 
 <body>
 
-<img src="banner.jpeg" class="banner">
+  <img src="banner.jpeg" class="banner">
 
-<div class="content">
+  <div class="overlay">
+    <a class="icon-btn whatsapp" href="https://wa.me/919483463783" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <h1>Hindu Vadhu-Varara Mahiti Kendra</h1>
-  <div class="subtitle">Matrimony & Travel Services</div>
-  <div class="tagline">Trusted Services Across Karnataka</div>
+    <a class="icon-btn instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
 
-  <a class="btn whatsapp" href="https://wa.me/919483463783" target="_blank">
-    <i class="fab fa-whatsapp"></i> Start on WhatsApp
-  </a>
+    <a class="icon-btn website" href="https://www.hindusmatrimony.com" target="_blank">
+      <i class="fas fa-globe"></i>
+    </a>
 
-  <div class="divider"></div>
+    <a class="icon-btn location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9" target="_blank">
+      <i class="fas fa-map-marker-alt"></i>
+    </a>
 
-  <a class="btn instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-
-  <a class="btn website" href="https://www.hindusmatrimony.com" target="_blank">
-    <i class="fas fa-globe"></i> Website
-  </a>
-
-  <a class="btn location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9" target="_blank">
-    <i class="fas fa-map-marker-alt"></i> Location
-  </a>
-
-  <a class="btn call" href="tel:7892510652">
-    <i class="fas fa-phone"></i> Call Us
-  </a>
-
-  <div class="contact">
-    📞 7892510652 | 💬 WhatsApp Available
+    <a class="icon-btn call" href="tel:7892510652">
+      <i class="fas fa-phone"></i>
+    </a>
   </div>
-
-</div>
-
-<a class="sticky-whatsapp" href="https://wa.me/919483463783" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>
