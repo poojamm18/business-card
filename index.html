@@ -52,7 +52,6 @@
       text-align: center;
       font-size: 20px;
       font-weight: 500;
-      letter-spacing: 0.5px;
       color: rgba(0,0,0,0.7);
       margin: 20px 0 10px;
     }
@@ -60,8 +59,6 @@
     .bottom {
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin-top: auto;
       padding: 50px 0 60px;
       animation: fadeUp 1.2s ease;
     }
@@ -76,7 +73,6 @@
 
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
 
       border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow:
@@ -95,6 +91,11 @@
       border-radius: 30px;
       background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
       z-index: -1;
+    }
+
+    /* ROWS (for mobile fix) */
+    .row {
+      display: contents;
     }
 
     /* ICONS */
@@ -137,7 +138,6 @@
 
     .icon:hover {
       transform: translateY(-6px) scale(1.08);
-      filter: brightness(1.1);
     }
 
     .icon:active {
@@ -180,39 +180,38 @@
       50% { transform: translateY(-6px); }
     }
 
-    /* 🔥 MOBILE FIX (FINAL CLEAN VERSION) */
+    /* 🔥 MOBILE FIX (REAL CENTERING) */
     @media (max-width: 768px) {
 
       .glass {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 15px;
         padding: 15px;
-        width: 100%;
         max-width: 260px;
         margin: 0 auto;
-        justify-items: center;
       }
-    
+
+      .row-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .row-bottom {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+      }
+
       .icon {
         width: 50px;
         height: 50px;
         font-size: 20px;
       }
-    
-      /* FIRST ROW AUTO (1,2,3) */
-    
-      /* SECOND ROW CENTERED */
-      .glass a:nth-child(4) {
-        grid-column: 1 / 2;
-        justify-self: end;
-      }
-    
-      .glass a:nth-child(5) {
-        grid-column: 3 / 4;
-        justify-self: start;
-      }
-    
+
     }
 
   </style>
@@ -234,25 +233,16 @@
     <div class="bottom">
       <div class="glass">
 
-        <a class="icon whatsapp" href="https://wa.me/919483463783" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
+        <div class="row row-top">
+          <a class="icon whatsapp" href="https://wa.me/919483463783"><i class="fab fa-whatsapp"></i></a>
+          <a class="icon instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya"><i class="fab fa-instagram"></i></a>
+          <a class="icon website" href="https://www.hindusmatrimony.com"><i class="fas fa-globe"></i></a>
+        </div>
 
-        <a class="icon instagram" href="https://www.instagram.com/lokeshaiah.m.aradhya" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-        <a class="icon website" href="https://www.hindusmatrimony.com" target="_blank">
-          <i class="fas fa-globe"></i>
-        </a>
-
-        <a class="icon location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9" target="_blank">
-          <i class="fas fa-map-marker-alt"></i>
-        </a>
-
-        <a class="icon call" href="tel:7892510652">
-          <i class="fas fa-phone"></i>
-        </a>
+        <div class="row row-bottom">
+          <a class="icon location" href="https://maps.app.goo.gl/P1CcpxmPSRSQUfuD9"><i class="fas fa-map-marker-alt"></i></a>
+          <a class="icon call" href="tel:7892510652"><i class="fas fa-phone"></i></a>
+        </div>
 
       </div>
     </div>
