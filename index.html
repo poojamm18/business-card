@@ -16,7 +16,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #f5d6e8 0%, #e2c9dc 60%, #f0b4b4 100%);
+      background: linear-gradient(180deg, #f5e3d6 0%, #e8d5c4 60%, #f0c8c8 100%);
       overflow-x: hidden;
     }
 
@@ -41,6 +41,26 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       animation: fadeIn 1s ease;
     }
+    .top::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 60%;
+      margin: 20px auto 0;
+      background: linear-gradient(to right, transparent, rgba(0,0,0,0.2), transparent);
+    }
+    .icon:active {
+      transform: scale(0.92);
+      filter: brightness(0.9);
+    }
+    .glass::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
+      pointer-events: none;
+    }
 
     .banner {
       width: 100%;
@@ -53,32 +73,50 @@
       font-size: 20px;
       font-weight: 500;
       color: rgba(0,0,0,0.7);
-      margin: 20px 0 10px;
+      margin-top: 30px;
+      margin-bottom: 0px;
     }
 
     .bottom {
       display: flex;
       justify-content: center;
-      padding: 50px 0 60px;
+      padding: 30px 0 50px;
       animation: fadeUp 1.2s ease;
     }
-
+    .bottom {
+      position: relative;
+    }
+    
+    .bottom::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 80px;
+      background: radial-gradient(circle, rgba(0,0,0,0.08), transparent 70%);
+      filter: blur(25px);
+      z-index: 0;
+    }
     /* GLASS */
     .glass {
       display: flex;
       gap: 30px;
-      padding: 25px 50px;
+      padding: 18px 22px;
       border-radius: 30px;
       position: relative;
-
-      background: rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(20px);
-
-      border: 1px solid rgba(255, 255, 255, 0.4);
+    
+          
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(25px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.6);
+    
       box-shadow:
-        0 20px 50px rgba(0,0,0,0.2),
-        0 0 40px rgba(255,255,255,0.3);
-
+        0 25px 60px rgba(0,0,0,0.25),
+        inset 0 1px 1px rgba(255,255,255,0.4);
+    
+    
       transform: translateY(-20px);
       animation: popIn 0.8s ease;
     }
@@ -92,7 +130,25 @@
       background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
       z-index: -1;
     }
-
+    .icon {
+      transition: all 0.3s ease;
+    }
+    
+    .icon:hover {
+      transform: translateY(-8px) scale(1.12);
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.35),
+        0 0 25px rgba(255,255,255,0.4);
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(255,255,255,0); }
+      50% { box-shadow: 0 0 20px rgba(255,255,255,0.25); }
+    }
+    
+    .icon {
+      animation: float 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+    }
+    
     /* ROWS (for mobile fix) */
     .row {
       display: contents;
@@ -179,6 +235,13 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
+    .cta-text {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(0,0,0,0.7);
+      margin: 15px 0 5px;  /* 🔥 reduced */
+    }
 
     /* 🔥 MOBILE FIX (REAL CENTERING) */
     @media (max-width: 768px) {
@@ -195,14 +258,15 @@
 
       .row-top {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;   /* ❌ remove space-between */
+        gap: 18px;                 /* ✅ control spacing manually */
         width: 100%;
       }
 
       .row-bottom {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 18px;
         width: 100%;
       }
 
