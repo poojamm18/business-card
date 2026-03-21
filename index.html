@@ -12,18 +12,14 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
   <style>
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #f5d6e8 0%, #e2c9dc 60%, #f0b4b4 100%);
+      overflow-x: hidden;
     }
 
-    body {
-      background: linear-gradient(180deg, #f5d6e8 0%, #e2c9dc 60%, #f0b4b4 100%);
-    }
-    
-    .top, .bottom {
-      background: transparent;
-    }
     body::after {
       content: '';
       position: fixed;
@@ -31,25 +27,19 @@
       pointer-events: none;
       background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.08));
     }
-    /* MAIN LAYOUT */
+
     .container {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* HERO */
     .top {
       line-height: 0;
-      padding-bottom: 30px; /* spacing under banner */
+      padding-bottom: 30px;
       border-bottom: 1px solid rgba(0,0,0,0.05);
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       animation: fadeIn 1s ease;
-    }
-
-    .top picture {
-      display: block;
-      width: 100%;
     }
 
     .banner {
@@ -58,10 +48,16 @@
       display: block;
     }
 
-    /* BOTTOM */
+    .cta-text {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: rgba(0,0,0,0.7);
+      margin: 20px 0 10px;
+    }
+
     .bottom {
-      max-width: 900px;
-      margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -74,23 +70,23 @@
     .glass {
       display: flex;
       gap: 30px;
-      margin: 0 auto;
-      position: relative;
       padding: 25px 50px;
       border-radius: 30px;
+      position: relative;
 
       background: rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
 
       border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow:0 20px 50px rgba(0,0,0,0.2),
-                0 0 40px rgba(255,255,255,0.3);
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.2),
+        0 0 40px rgba(255,255,255,0.3);
 
-      transform: translateY(-20px); /* layering effect */
-
+      transform: translateY(-20px);
       animation: popIn 0.8s ease;
     }
+
     .glass::before {
       content: '';
       opacity: 0.3;
@@ -113,15 +109,20 @@
       font-size: 30px;
       text-decoration: none;
       transition: 0.3s;
-      box-shadow: 
+      position: relative;
+
+      box-shadow:
         0 8px 20px rgba(0,0,0,0.25),
         inset 0 2px 4px rgba(255,255,255,0.3);
 
-      position: relative;
+      animation: float 4s ease-in-out infinite;
     }
-    .icon:active {
-      transform: scale(0.95);
-    }
+
+    .icon:nth-child(2) { animation-delay: 0.3s; }
+    .icon:nth-child(3) { animation-delay: 0.6s; }
+    .icon:nth-child(4) { animation-delay: 0.9s; }
+    .icon:nth-child(5) { animation-delay: 1.2s; }
+
     .icon::after {
       content: '';
       position: absolute;
@@ -139,6 +140,10 @@
       filter: brightness(1.1);
     }
 
+    .icon:active {
+      transform: scale(0.95);
+    }
+
     .glass:hover .icon {
       opacity: 0.5;
     }
@@ -146,75 +151,13 @@
     .glass .icon:hover {
       opacity: 1;
     }
-    .icon {
-      animation: float 4s ease-in-out infinite;
-    }
-    
-    .icon:nth-child(2) { animation-delay: 0.3s; }
-    .icon:nth-child(3) { animation-delay: 0.6s; }
-    .icon:nth-child(4) { animation-delay: 0.9s; }
-    .icon:nth-child(5) { animation-delay: 1.2s; }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .cta-text {
-      text-align: center;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      color: rgba(0,0,0,0.7);
-      margin-bottom: 0px;
-    }
-    @media (max-width: 768px) {
-      .glass {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        justify-items: center;
-      }
-    }
-    @media (max-width: 768px) {
-      .glass a:nth-child(4) {
-        grid-column: 1 / 2;
-      }
-      .glass a:nth-child(5) {
-        grid-column: 3 / 4;
-      }
-    }
-    @media (max-width: 768px) {
-      .glass {
-        padding: 15px 10px;
-        gap: 12px;
-      }
-    }
-    body {
-      overflow-x: hidden;
-    }
-    @media (max-width: 768px) {
-      .glass {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
-    @media (max-width: 768px) {
-      .icon {
-        width: 48px;
-        height: 48px;
-        font-size: 18px;
-      }
-    }
+
     /* COLORS */
-    .whatsapp { background: #1ca84f; }
-    .instagram { background: #bf2357; }
-    .website { background: #316ecf; }
-    .location { background: #148c40; }
-    .call { background: #d16112; }
+    .whatsapp { background: linear-gradient(145deg, #22c55e, #15803d); }
+    .instagram { background: linear-gradient(145deg, #e1306c, #9f1239); }
+    .website { background: linear-gradient(145deg, #3b82f6, #1e3a8a); }
+    .location { background: linear-gradient(145deg, #16a34a, #14532d); }
+    .call { background: linear-gradient(145deg, #f97316, #9a3412); }
 
     /* ANIMATIONS */
     @keyframes fadeIn {
@@ -232,29 +175,40 @@
       to { transform: scale(1); opacity: 1; }
     }
 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* 🔥 MOBILE FIX (FINAL CLEAN VERSION) */
     @media (max-width: 768px) {
+
       .glass {
-        backdrop-filter: blur(18px);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 15px;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        justify-items: center;
       }
-    }
-    .whatsapp { 
-      background: linear-gradient(145deg, #22c55e, #15803d);
-    }
-    
-    .instagram { 
-      background: linear-gradient(145deg, #e1306c, #9f1239);
-    }
-    
-    .website { 
-      background: linear-gradient(145deg, #3b82f6, #1e3a8a);
-    }
-    
-    .location { 
-      background: linear-gradient(145deg, #16a34a, #14532d);
-    }
-    
-    .call { 
-      background: linear-gradient(145deg, #f97316, #9a3412);
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      /* center bottom row */
+      .glass a:nth-child(4) {
+        grid-column: 2;
+      }
+
+      .glass a:nth-child(5) {
+        grid-column: 3;
+      }
+
     }
 
   </style>
@@ -264,7 +218,6 @@
 
   <div class="container">
 
-    <!-- HERO -->
     <div class="top">
       <picture>
         <source media="(max-width: 768px)" srcset="mobile-veiw.png">
@@ -272,8 +225,8 @@
       </picture>
     </div>
 
-    <!-- ICONS -->
     <p class="cta-text">Connect with us</p>
+
     <div class="bottom">
       <div class="glass">
 
