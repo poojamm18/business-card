@@ -16,9 +16,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #f5e3d6 0%, #e8d5c4 60%, #f0c8c8 100%);
+      background: linear-gradient(180deg,#f6e7da 0%,
+    #ecd6c3 50%,
+    #e4c7c7 100%);
       overflow-x: hidden;
     }
+
 
     body::after {
       content: '';
@@ -93,7 +96,9 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80%;
+      width: 70%;
+      bottom: 20px;
+      transform: translateX(-50%);
       height: 80px;
       background: radial-gradient(circle, rgba(0,0,0,0.08), transparent 70%);
       filter: blur(25px);
@@ -108,13 +113,13 @@
       position: relative;
     
           
-      background: rgba(255, 255, 255, 0.28);
-      backdrop-filter: blur(25px) saturate(160%);
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(25px) saturate(180%);
       border: 1px solid rgba(255,255,255,0.6);
     
       box-shadow:
         0 25px 60px rgba(0,0,0,0.25),
-        inset 0 1px 1px rgba(255,255,255,0.4);
+        inset 0 1px 1px rgba(255,255,255,0.5);
     
     
       transform: translateY(-20px);
@@ -133,12 +138,22 @@
     .icon {
       transition: all 0.3s ease;
     }
-    
+    .icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.4),
+        transparent
+      );
+    }
     .icon:hover {
-      transform: translateY(-8px) scale(1.12);
+      transform: translateY(-8px) scale(1.1);
       box-shadow:
         0 12px 30px rgba(0,0,0,0.35),
-        0 0 25px rgba(255,255,255,0.4);
+        0 0 20px rgba(255,255,255,0.4);
     }
     @keyframes pulseGlow {
       0%, 100% { box-shadow: 0 0 0 rgba(255,255,255,0); }
@@ -239,7 +254,8 @@
       text-align: center;
       font-size: 18px;
       font-weight: 500;
-      color: rgba(0,0,0,0.7);
+      color: rgba(0,0,0,0.6.5);
+      letter-spacing: 1px;
       margin: 15px 0 5px;  /* 🔥 reduced */
     }
 
@@ -277,6 +293,30 @@
       }
 
     }
+    @media (max-width: 768px) {
+
+    .glass {
+      backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+  
+    .icon {
+      box-shadow: 
+        0 6px 15px rgba(0,0,0,0.25),
+        inset 0 2px 3px rgba(255,255,255,0.25);
+    }
+  
+    .bottom::before {
+      height: 70px;
+      opacity: 0.7;
+    }
+  
+    .cta-text {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+
+}
 
   </style>
 </head>
