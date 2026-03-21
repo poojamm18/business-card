@@ -16,12 +16,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg,#f6e7da 0%,
-    #ecd6c3 50%,
-    #e4c7c7 100%);
+      background: linear-gradient(180deg,#f6e7da 0%, #ecd6c3 50%, #e4c7c7 100%);
       overflow-x: hidden;
     }
-
 
     body::after {
       content: '';
@@ -44,6 +41,7 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       animation: fadeIn 1s ease;
     }
+
     .top::after {
       content: '';
       display: block;
@@ -52,58 +50,51 @@
       margin: 20px auto 0;
       background: linear-gradient(to right, transparent, rgba(0,0,0,0.2), transparent);
     }
-    .icon:active {
-      transform: scale(0.92);
-      filter: brightness(0.9);
-    }
-    .glass::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 30px;
-      background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
-      pointer-events: none;
-    }
 
     .banner {
       width: 100%;
-      height: auto;
       display: block;
     }
 
+    /* CTA (refined) */
     .cta-text {
       text-align: center;
-      font-size: 20px;
+      font-size: 17px;
+      letter-spacing: 1.2px;
       font-weight: 500;
-      color: rgba(0,0,0,0.7);
-      margin-top: 30px;
-      margin-bottom: 0px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.6);
+      margin: 18px 0 8px;
+      animation: fadeUp 1s ease;
     }
 
     .bottom {
       display: flex;
       justify-content: center;
-      padding: 30px 0 50px;
+      padding: 25px 0 60px;
       animation: fadeUp 1.2s ease;
-    }
-    .bottom {
       position: relative;
     }
-    
+
+    /* subtle ground shadow */
     .bottom::before {
       content: '';
       position: absolute;
-      top: -30px;
+      width: 75%;
+      height: 140px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 70%;
-      bottom: 20px;
-      transform: translateX(-50%);
-      height: 80px;
-      background: radial-gradient(circle, rgba(0,0,0,0.08), transparent 70%);
-      filter: blur(25px);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.15),
+        transparent 70%
+      );
+      filter: blur(35px);
       z-index: 0;
     }
+
     /* GLASS */
     .glass {
       display: flex;
@@ -111,62 +102,26 @@
       padding: 18px 22px;
       border-radius: 30px;
       position: relative;
-    
-          
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(25px) saturate(180%);
+
+      background: rgba(255, 248, 240, 0.35);
+      backdrop-filter: blur(25px) saturate(160%);
       border: 1px solid rgba(255,255,255,0.6);
-    
+
       box-shadow:
         0 25px 60px rgba(0,0,0,0.25),
-        inset 0 1px 1px rgba(255,255,255,0.5);
-    
-    
+        inset 0 1px 1px rgba(255,255,255,0.4);
+
       transform: translateY(-20px);
       animation: popIn 0.8s ease;
     }
 
-    .glass::before {
-      content: '';
-      opacity: 0.3;
-      position: absolute;
-      inset: -10px;
-      border-radius: 30px;
-      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
-      z-index: -1;
-    }
-    .icon {
-      transition: all 0.3s ease;
-    }
-    .icon::before {
+    .glass::after {
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 50%;
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.4),
-        transparent
-      );
-    }
-    .icon:hover {
-      transform: translateY(-8px) scale(1.1);
-      box-shadow:
-        0 12px 30px rgba(0,0,0,0.35),
-        0 0 20px rgba(255,255,255,0.4);
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 rgba(255,255,255,0); }
-      50% { box-shadow: 0 0 20px rgba(255,255,255,0.25); }
-    }
-    
-    .icon {
-      animation: float 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
-    }
-    
-    /* ROWS (for mobile fix) */
-    .row {
-      display: contents;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.5);
+      pointer-events: none;
     }
 
     /* ICONS */
@@ -180,8 +135,9 @@
       color: white;
       font-size: 30px;
       text-decoration: none;
-      transition: 0.3s;
       position: relative;
+
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
 
       box-shadow:
         0 8px 20px rgba(0,0,0,0.25),
@@ -190,35 +146,48 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    .icon:nth-child(2) { animation-delay: 0.3s; }
-    .icon:nth-child(3) { animation-delay: 0.6s; }
-    .icon:nth-child(4) { animation-delay: 0.9s; }
-    .icon:nth-child(5) { animation-delay: 1.2s; }
+    /* soft highlight */
+    .icon::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255,255,255,0.4), transparent);
+    }
 
     .icon::after {
       content: '';
       position: absolute;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       border-radius: 50%;
       background: inherit;
-      z-index: -1;
       filter: blur(15px);
-      opacity: 0.6;
+      opacity: 0.5;
+      z-index: -1;
     }
 
     .icon:hover {
-      transform: translateY(-6px) scale(1.08);
+      transform: translateY(-8px) scale(1.1);
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.35),
+        0 0 20px rgba(255,255,255,0.3);
     }
 
     .icon:active {
+      transform: scale(0.9);
+    }
+
+    .glass .icon {
+      opacity: 1;
+    }
+    
+    /* only when hovering inside AND NOT the hovered icon */
+    .glass:hover .icon:not(:hover) {
+      opacity: 0.4;
       transform: scale(0.95);
     }
-
-    .glass:hover .icon {
-      opacity: 0.5;
-    }
-
+    
+    /* hovered icon stays sharp */
     .glass .icon:hover {
       opacity: 1;
     }
@@ -229,6 +198,9 @@
     .website { background: linear-gradient(145deg, #3b82f6, #1e3a8a); }
     .location { background: linear-gradient(145deg, #16a34a, #14532d); }
     .call { background: linear-gradient(145deg, #f97316, #9a3412); }
+
+    /* ROWS */
+    .row { display: contents; }
 
     /* ANIMATIONS */
     @keyframes fadeIn {
@@ -250,16 +222,8 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-    .cta-text {
-      text-align: center;
-      font-size: 18px;
-      font-weight: 500;
-      color: rgba(0,0,0,0.6.5);
-      letter-spacing: 1px;
-      margin: 15px 0 5px;  /* 🔥 reduced */
-    }
 
-    /* 🔥 MOBILE FIX (REAL CENTERING) */
+    /* MOBILE */
     @media (max-width: 768px) {
 
       .glass {
@@ -270,15 +234,10 @@
         padding: 15px;
         max-width: 260px;
         margin: 0 auto;
+        backdrop-filter: blur(18px) saturate(140%);
       }
 
-      .row-top {
-        display: flex;
-        justify-content: center;   /* ❌ remove space-between */
-        gap: 18px;                 /* ✅ control spacing manually */
-        width: 100%;
-      }
-
+      .row-top,
       .row-bottom {
         display: flex;
         justify-content: center;
@@ -290,33 +249,22 @@
         width: 50px;
         height: 50px;
         font-size: 20px;
+        box-shadow:
+          0 6px 15px rgba(0,0,0,0.25),
+          inset 0 2px 3px rgba(255,255,255,0.25);
       }
 
-    }
-    @media (max-width: 768px) {
+      .cta-text {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+      }
 
-    .glass {
-      backdrop-filter: blur(18px) saturate(140%);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      .bottom::before {
+        height: 100px;
+        width: 85%;
+        opacity: 0.7;
+      }
     }
-  
-    .icon {
-      box-shadow: 
-        0 6px 15px rgba(0,0,0,0.25),
-        inset 0 2px 3px rgba(255,255,255,0.25);
-    }
-  
-    .bottom::before {
-      height: 70px;
-      opacity: 0.7;
-    }
-  
-    .cta-text {
-    font-size: 16px;
-    letter-spacing: 0.5px;
-  }
-
-}
 
   </style>
 </head>
@@ -332,7 +280,7 @@
       </picture>
     </div>
 
-    <p class="cta-text">Connect with us</p>
+    <p class="cta-text">Contact & Connect</p>
 
     <div class="bottom">
       <div class="glass">
