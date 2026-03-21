@@ -15,105 +15,114 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fdf2f8, #e0f2fe, #fef3c7);
-      background-size: 300% 300%;
-      animation: gradientMove 8s ease infinite;
     }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body {
+      background: linear-gradient(180deg, #f5d6e8 0%, #e2c9dc 60%, #f0b4b4 100%);
     }
-
+    
+    .top, .bottom {
+      background: transparent;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.08));
+    }
     /* MAIN LAYOUT */
     .container {
-      height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .top {
-      flex: 7;
-      overflow: hidden;
-      line-height: 0; /* ✅ removes white gap */
+      line-height: 0;
+      padding-bottom: 30px; /* spacing under banner */
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      animation: fadeIn 1s ease;
     }
 
     .top picture {
-      width: 100%;
-      height: 100%;
       display: block;
+      width: 100%;
     }
 
     .banner {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block; /* ✅ removes inline gap */
+      height: auto;
+      display: block;
     }
 
-    /* BOTTOM SECTION */
+    /* BOTTOM */
     .bottom {
-      flex: 3;
+      max-width: 900px;
+      margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #adbdce, #e2e8f0);
-    }
-
-    .top {
-      animation: fadeIn 1s ease;
-    }
-
-    .bottom {
+      margin-top: auto;
+      padding: 50px 0 60px;
       animation: fadeUp 1.2s ease;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.02); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      
     }
 
+    /* GLASS */
     .glass {
       display: flex;
-      gap: 20px;
-      padding: 20px 30px;
-      border-radius: 25px;
-      backdrop-filter: blur(15px);
-      background: rgba(255,255,255,0.3);
-      border: 1px solid rgba(255,255,255,0.4);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    
-      animation: float 4s ease-in-out infinite;
+      gap: 30px;
+      margin: 0 auto;
+      position: relative;
+      padding: 25px 50px;
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow:0 20px 50px rgba(0,0,0,0.2),
+                0 0 40px rgba(255,255,255,0.3);
+
+      transform: translateY(-20px); /* layering effect */
+
+      animation: popIn 0.8s ease;
     }
-    
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .glass::before {
+      content: '';
+      opacity: 0.3;
+      position: absolute;
+      inset: -10px;
+      border-radius: 30px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+      z-index: -1;
     }
 
+    /* ICONS */
     .icon {
-      width: 55px;
-      height: 55px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 20px;
+      font-size: 30px;
       text-decoration: none;
       transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    
+      box-shadow: 
+        0 8px 20px rgba(0,0,0,0.25),
+        inset 0 2px 4px rgba(255,255,255,0.3);
+
       position: relative;
     }
-
+    .icon:active {
+      transform: scale(0.95);
+    }
     .icon::after {
       content: '';
       position: absolute;
@@ -123,19 +132,90 @@
       background: inherit;
       z-index: -1;
       filter: blur(15px);
-      opacity: 0.7;
-    }
-    
-    .icon:hover {
-      transform: translateY(-8px) scale(1.15);
+      opacity: 0.6;
     }
 
+    .icon:hover {
+      transform: translateY(-6px) scale(1.08);
+      filter: brightness(1.1);
+    }
+
+    .glass:hover .icon {
+      opacity: 0.5;
+    }
+
+    .glass .icon:hover {
+      opacity: 1;
+    }
+    .icon {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .icon:nth-child(2) { animation-delay: 0.3s; }
+    .icon:nth-child(3) { animation-delay: 0.6s; }
+    .icon:nth-child(4) { animation-delay: 0.9s; }
+    .icon:nth-child(5) { animation-delay: 1.2s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .cta-text {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: rgba(0,0,0,0.7);
+      margin-bottom: 0px;
+    }
+    
     /* COLORS */
-    .whatsapp { background: #22c55e; }
-    .instagram { background: #e1306c; }
-    .website { background: #3b82f6; }
-    .location { background: #16a34a; }
-    .call { background: #f97316; }
+    .whatsapp { background: #1ca84f; }
+    .instagram { background: #bf2357; }
+    .website { background: #316ecf; }
+    .location { background: #148c40; }
+    .call { background: #d16112; }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .glass {
+        backdrop-filter: blur(18px);
+      }
+    }
+    .whatsapp { 
+      background: linear-gradient(145deg, #22c55e, #15803d);
+    }
+    
+    .instagram { 
+      background: linear-gradient(145deg, #e1306c, #9f1239);
+    }
+    
+    .website { 
+      background: linear-gradient(145deg, #3b82f6, #1e3a8a);
+    }
+    
+    .location { 
+      background: linear-gradient(145deg, #16a34a, #14532d);
+    }
+    
+    .call { 
+      background: linear-gradient(145deg, #f97316, #9a3412);
+    }
 
   </style>
 </head>
@@ -147,15 +227,13 @@
     <!-- HERO -->
     <div class="top">
       <picture>
-        <!-- MOBILE -->
         <source media="(max-width: 768px)" srcset="mobile-veiw.png">
-
-        <!-- DESKTOP -->
         <img src="desktop_banner.jpeg" class="banner" alt="Banner">
       </picture>
     </div>
 
-    <!-- ICON SECTION -->
+    <!-- ICONS -->
+    <p class="cta-text">Connect with us</p>
     <div class="bottom">
       <div class="glass">
 
