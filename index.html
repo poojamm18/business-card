@@ -68,43 +68,6 @@
       margin-top: auto;
       padding: 50px 0 60px;
       animation: fadeUp 1.2s ease;
-      
-    }
-    @media (max-width: 768px) {
-      .banner {
-        height: auto;
-        max-height: 60vh;
-        object-fit: cover;
-      }
-    }
-    @media (max-width: 768px) {
-      .top {
-        padding-bottom: 10px;
-      }
-    
-      .bottom {
-        padding: 30px 15px 50px;
-      }
-    }
-    @media (max-width: 768px) {
-      .glass {
-        padding: 15px 20px;
-        gap: 15px;
-        border-radius: 20px;
-      }
-    }
-    @media (max-width: 768px) {
-      .icon {
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-      }
-    }
-    @media (max-width: 768px) {
-      .cta-text {
-        font-size: 16px;
-        margin-bottom: 15px;
-      }
     }
 
     /* GLASS */
@@ -204,7 +167,29 @@
       color: rgba(0,0,0,0.7);
       margin-bottom: 0px;
     }
-    
+    @media (max-width: 768px) {
+      .glass {
+        width: 100%;
+        max-width: 95%;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+    }
+    @media (max-width: 768px) {
+      .glass {
+        padding: 15px 10px;
+        gap: 12px;
+      }
+    }
+    body {
+      overflow-x: hidden;
+    }
+    @media (max-width: 768px) {
+      .glass {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
     /* COLORS */
     .whatsapp { background: #1ca84f; }
     .instagram { background: #bf2357; }
